@@ -31,16 +31,7 @@ let roomGeo = new THREE.BoxBufferGeometry(1, 1, 1);
 let roomMat = new THREE.MeshLambertMaterial({color: 0xfffff});
 roomMat.side = THREE.BackSide;
 
-var listener = new THREE.AudioListener();
-camera.add(listener);
-var sound = new THREE.PositionalAudio(listener);
-var audioLoader = new THREE.AudioLoader();
-audioLoader.load('X:/TFYA65/lab2/Lab2/Hej.wav', function(buffer) 
-{
-	sound.setBuffer( buffer );
-	sound.setRefDistance( 20 );
-	sound.play();
-}
+
 
 
 
@@ -60,6 +51,20 @@ scene.add(flyTrans);
 flyTrans.add(fly);
 
 
+/* LJUD */
+var listener = new THREE.AudioListener();
+camera.add(listener);
+var sound = new THREE.PositionalAudio(listener);
+var audioLoader = new THREE.AudioLoader();
+audioLoader.load('Hej.wav', function(buffer) 
+{
+	sound.setBuffer( buffer );
+	sound.setLoop( true );
+	sound.setRefDistance( 20 );
+	sound.play();
+});
+
+fly.add(sound);
 
 function animate() {
 	requestAnimationFrame( animate );
