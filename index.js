@@ -24,6 +24,19 @@ let roomGeo = new THREE.BoxBufferGeometry(20, 20, 32);
 let roomMat = new THREE.MeshLambertMaterial({color: 0xffffff});
 roomMat.side = THREE.BackSide;
 
+var listener = new THREE.AudioListener();
+camera.add(listener);
+var sound = new THREE.PositionalAudio(listener);
+var audioLoader = new THREE.AudioLoader();
+audioLoader.load('X:/TFYA65/lab2/Lab2/Hej.wav', function(buffer) 
+{
+	sound.setBuffer( buffer );
+	sound.setRefDistance( 20 );
+	sound.play();
+}
+
+
+
 let room = new THREE.Mesh(roomGeo, roomMat);
 
 //scene.add(room);
