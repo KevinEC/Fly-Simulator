@@ -4,12 +4,14 @@
   "description": "Cool 3D sound just for u :)",
   "main": "index.js",
   "dependencies": {
+    "budo": "^11.3.2",
     "local-web-server": "^2.6.0",
     "three": "^0.96.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "app": "budo index.js --live"
   },
   "repository": {
     "type": "git",
