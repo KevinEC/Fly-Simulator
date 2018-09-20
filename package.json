@@ -1,0 +1,30 @@
+{
+  "name": "fly-simulator",
+  "version": "1.0.0",
+  "description": "Cool 3D sound just for u :)",
+  "main": "index.js",
+  "dependencies": {
+    "local-web-server": "^2.6.0",
+    "three": "^0.96.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinEC/Fly-Simulator.git"
+  },
+  "keywords": [
+    "3D",
+    "sound",
+    "fly",
+    "liu"
+  ],
+  "author": "Kevin, Olivia, Ester",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KevinEC/Fly-Simulator/issues"
+  },
+  "homepage": "https://github.com/KevinEC/Fly-Simulator#readme"
+}
