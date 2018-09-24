@@ -1,5 +1,7 @@
-let THREE = require('three');
-var OrbitControls = require('three-orbit-controls')(THREE);
+const THREE = require('three');
+const OrbitControls = require('three-orbit-controls')(THREE);
+/* enables file project-local reading*/
+const fsPath = require('fs-path');
 
 
 let renderer = new THREE.WebGLRenderer();
@@ -71,7 +73,7 @@ audioLoader.load('Hej.wav', function(buffer)
 	sound.setBuffer( buffer );
 	sound.setLoop( true );
 	sound.setRefDistance( 20 );
-	sound.play();
+	//sound.play();
 });
 
 fly.add(sound);
@@ -87,3 +89,14 @@ function animate() {
 	renderer.render( scene, camera );
 }
 animate();
+readFiles();
+
+function readFiles()
+{
+	console.log(fsPath);
+	let folder = "impulses/";
+
+	fsPath.find(folder, function(err, list) {
+		console.log(files);
+	});
+}
