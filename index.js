@@ -1,7 +1,7 @@
+//import files from './connect.js';
 const THREE = require('three');
 const OrbitControls = require('three-orbit-controls')(THREE);
-/* enables file project-local reading*/
-const fsPath = require('fs-path');
+
 
 
 let renderer = new THREE.WebGLRenderer();
@@ -32,7 +32,7 @@ var listener = new THREE.AudioListener();
 camera.add(listener);
 var sound = new THREE.PositionalAudio(listener);
 var audioLoader = new THREE.AudioLoader();
-audioLoader.load('X:/TFYA65/lab2/Lab2/Hej.wav', function(buffer) 
+audioLoader.load('Hej.wav', function(buffer) 
 {
 	sound.setBuffer( buffer );
 	sound.setRefDistance( 20 );
@@ -89,14 +89,3 @@ function animate() {
 	renderer.render( scene, camera );
 }
 animate();
-readFiles();
-
-function readFiles()
-{
-	console.log(fsPath);
-	let folder = "impulses/";
-
-	fsPath.find(folder, function(err, list) {
-		console.log(files);
-	});
-}
