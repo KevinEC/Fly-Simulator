@@ -5,8 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "budo": "^11.3.2",
+    "file-system": "^2.2.2",
     "local-web-server": "^2.6.0",
-    "three": "^0.96.0"
+    "three": "^0.96.0",
+    "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {},
   "scripts": {

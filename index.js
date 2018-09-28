@@ -1,5 +1,7 @@
-let THREE = require('three');
-var OrbitControls = require('three-orbit-controls')(THREE);
+//import files from './connect.js';
+const THREE = require('three');
+const OrbitControls = require('three-orbit-controls')(THREE);
+
 
 
 let renderer = new THREE.WebGLRenderer();
@@ -24,9 +26,6 @@ let light = new THREE.PointLight( 0xff0000, 1, 100 );
 light.position.set( 1, 1, 1 );
 scene.add( light );
 
-
-
-
 let roomGeo = new THREE.BoxBufferGeometry(1, 1, 1);
 let roomMat = new THREE.MeshLambertMaterial({color: 0xfffff});
 roomMat.side = THREE.BackSide;
@@ -42,6 +41,7 @@ var listener = new THREE.AudioListener();
 camera.add(listener);
 var sound = new THREE.PositionalAudio(listener);
 var audioLoader = new THREE.AudioLoader(manager);
+
 audioLoader.load('Hej.wav', function(buffer) 
 {
 	sound.setBuffer( buffer );
@@ -49,6 +49,10 @@ audioLoader.load('Hej.wav', function(buffer)
 	sound.play();
 });
 
+
+let roomGeo = new THREE.BoxBufferGeometry(6, 3, 6);
+let roomMat = new THREE.MeshLambertMaterial({color: 0xfffff});
+roomMat.side = THREE.BackSide;
 
 
 let room = new THREE.Mesh(roomGeo, roomMat);
@@ -61,16 +65,36 @@ let flyMat = new THREE.MeshLambertMaterial({color: 0xffffff});
 let fly = new THREE.Mesh(flyGeo, flyMat);
 
 let flyTrans = new THREE.Group();
-flyTrans.position.set = (0,0,0);
+let flyRot = new THREE.Group();
 
-scene.add(flyTrans);
+
+scene.add(flyRot);
+flyRot.add(flyTrans);
 flyTrans.add(fly);
 
 
+/* LJUD */
+var listener = new THREE.AudioListener();
+camera.add(listener);
+var sound = new THREE.PositionalAudio(listener);
+var audioLoader = new THREE.AudioLoader();
+audioLoader.load('Hej.wav', function(buffer) 
+{
+	sound.setBuffer( buffer );
+	sound.setLoop( true );
+	sound.setRefDistance( 20 );
+	//sound.play();
+});
+
+fly.add(sound);
 
 function animate() {
 	requestAnimationFrame( animate );
 	/* animations goes here */
+	flyTrans.position.set(0,0,-2.5);
+	flyRot.rotation.y += 3.14/360;
+	
+
 
 	renderer.render( scene, camera );
 }
