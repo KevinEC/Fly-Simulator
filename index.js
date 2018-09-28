@@ -30,6 +30,7 @@ let roomGeo = new THREE.BoxBufferGeometry(1, 1, 1);
 let roomMat = new THREE.MeshLambertMaterial({color: 0xfffff});
 roomMat.side = THREE.BackSide;
 
+
 /* testing loadingManager */
 var manager = new THREE.LoadingManager();
 THREE.DefaultLoadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) {
@@ -50,9 +51,6 @@ audioLoader.load('Hej.wav', function(buffer)
 });
 
 
-let roomGeo = new THREE.BoxBufferGeometry(6, 3, 6);
-let roomMat = new THREE.MeshLambertMaterial({color: 0xfffff});
-roomMat.side = THREE.BackSide;
 
 
 let room = new THREE.Mesh(roomGeo, roomMat);
